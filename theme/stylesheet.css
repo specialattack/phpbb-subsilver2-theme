@@ -401,6 +401,16 @@ hr {
 /* Links
  ------------ */
 
+button.hyperlink {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	padding: 0;
+	border: 0 none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
 /* Links adjustment to correctly display an order of rtl/ltr mixed content */
 .rtl a {
 	direction: rtl;
@@ -409,7 +419,7 @@ hr {
 
 /* CSS spec requires a:link, a:visited, a:hover and a:active rules to be specified in this order. */
 /* See http://www.phpbb.com/bugs/phpbb3/59685 */
-a:link {
+a:link, .hyperlink {
 	color: #006597;
 	text-decoration: none;
 }
@@ -419,12 +429,12 @@ a:visited {
 	text-decoration: none;
 }
 
-a:hover {
+a:hover, .hyperlink:hover {
 	color: #D46400;
 	text-decoration: underline;
 }
 
-a:active {
+a:active, .hyperlink:active {
 	color: #005784;
 	text-decoration: none;
 }
@@ -480,7 +490,7 @@ form {
 	border: 0;
 }
 
-input {
+input, button {
 	color: #333333;
 	font-family: "Lucida Grande", Verdana, Helvetica, sans-serif;
 	font-size: 1.1em;
@@ -594,6 +604,11 @@ input:focus, select:focus, textarea:focus {
 
 .quotetitle .quotetitle {
 	font-size: 1em;
+}
+
+.quotedate {
+	font-weight: normal;
+	float: right;
 }
 
 .quotecontent, .attachcontent {

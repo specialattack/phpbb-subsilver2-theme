@@ -20,7 +20,11 @@
 
 <!-- IF not S_PRIVMSGS -->
 	<div id="pageheader">
-		<h2><!-- IF TOPIC_TITLE --><!-- EVENT posting_topic_title_before --><a class="titles" href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a><!-- ELSE --><a class="titles" href="{U_VIEW_FORUM}">{FORUM_NAME}</a><!-- ENDIF --></h2>
+		<!-- IF TOPIC_TITLE -->
+			<h2><!-- EVENT posting_topic_title_before --><a class="titles" href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a><!-- EVENT posting_topic_title_after --></h2>
+		<!-- ELSE -->
+			<h2><a class="titles" href="{U_VIEW_FORUM}">{FORUM_NAME}</a></h2>
+		<!-- ENDIF -->
 
 		<!-- IF MODERATORS -->
 			<p class="moderators">{L_MODERATORS}{L_COLON} {MODERATORS}</p>
@@ -87,22 +91,6 @@
 <!-- IF S_DISPLAY_PREVIEW --><!-- INCLUDE posting_preview.html --><!-- ENDIF -->
 
 
-<!-- IF not S_PRIVMSGS and S_UNGLOBALISE -->
-	<table class="tablebg" width="100%" cellspacing="1">
-	<tr>
-		<th>{L_MOVE}</th>
-	</tr>
-	<tr>
-		<td class="spacer" colspan="2"><img src="images/spacer.gif" alt="" width="1" height="1" /></td>
-	</tr>
-	<tr>
-		<td class="row2" align="center"><span class="gen">{L_UNGLOBALISE_EXPLAIN}<br /><br />{L_SELECT_DESTINATION_FORUM}&nbsp;&nbsp;</span><select name="to_forum_id">{S_FORUM_SELECT}</select><br /><br /><input class="btnmain" type="submit" name="post" value="{L_CONFIRM}" />&nbsp;&nbsp; <input class="btnlite" type="submit" name="cancel_unglobalise" value="{L_CANCEL}" /></td>
-	</tr>
-	</table>
-
-	<br clear="all" />
-<!-- ENDIF -->
-
 <table class="tablebg" width="100%" cellspacing="1">
 <tr>
 	<th colspan="2"><b>{L_POST_A}</b></th>
@@ -120,7 +108,16 @@
 		<td class="row2">
 			<table width="100%" cellspacing="0" cellpadding="0" border="0">
 			<tr>
-				<td><input type="radio" class="radio" name="icon" value="0"{S_NO_ICON_CHECKED} tabindex="1" /><span class="genmed"><!-- IF S_SHOW_TOPIC_ICONS -->{L_NO_TOPIC_ICON}<!-- ELSE -->{L_NO_PM_ICON}<!-- ENDIF --></span> <!-- BEGIN topic_icon --><span style="white-space: nowrap;"><input type="radio" class="radio" name="icon" value="{topic_icon.ICON_ID}"{topic_icon.S_ICON_CHECKED} tabindex="1" /><img src="{topic_icon.ICON_IMG}" width="{topic_icon.ICON_WIDTH}" height="{topic_icon.ICON_HEIGHT}" alt="" title="" hspace="2" vspace="2" /></span> <!-- END topic_icon --></td>
+				<td>
+					<input type="radio" class="radio" name="icon" value="0"{S_NO_ICON_CHECKED} tabindex="1" />
+					<span class="genmed"><!-- IF S_SHOW_TOPIC_ICONS -->{L_NO_TOPIC_ICON}<!-- ELSE -->{L_NO_PM_ICON}<!-- ENDIF --></span>
+					<!-- BEGIN topic_icon -->
+					<span style="white-space: nowrap;">
+						<input type="radio" class="radio" name="icon" value="{topic_icon.ICON_ID}"{topic_icon.S_ICON_CHECKED} tabindex="1" />
+						<img src="{topic_icon.ICON_IMG}" width="{topic_icon.ICON_WIDTH}" height="{topic_icon.ICON_HEIGHT}" alt="{topic_icon.ICON_ALT}" title="{topic_icon.ICON_ALT}" hspace="2" vspace="2" />
+					</span>
+					<!-- END topic_icon -->
+				</td>
 			</tr>
 			</table>
 		</td>
@@ -141,7 +138,7 @@
 			{S_HIDDEN_ADDRESS_FIELD}
 		<!-- BEGIN to_recipient -->
 			<span style="display: block; float: {S_CONTENT_FLOW_BEGIN};" class="nowrap genmed"><strong>
-			<!-- IF to_recipient.IS_GROUP --><a href="{to_recipient.U_VIEW}"><span class="sep">{to_recipient.NAME}</span></a><!-- ELSE -->{to_recipient.NAME_FULL}<!-- ENDIF --></strong>&nbsp;<!-- IF not S_EDIT_POST --><input class="post" type="submit" name="remove_{to_recipient.TYPE}[{to_recipient.UG_ID}]" value="{L_REMOVE}" />&nbsp;<!-- ENDIF -->
+			<!-- IF to_recipient.IS_GROUP --><a href="{to_recipient.U_VIEW}" style="color: {{ to_recipient.COLOUR }}"><span class="sep">{to_recipient.NAME}</span></a><!-- ELSE -->{to_recipient.NAME_FULL}<!-- ENDIF --></strong>&nbsp;<!-- IF not S_EDIT_POST --><input class="post" type="submit" name="remove_{to_recipient.TYPE}[{to_recipient.UG_ID}]" value="{L_REMOVE}" />&nbsp;<!-- ENDIF -->
 			</span>
 		<!-- BEGINELSE -->
 			<span class="genmed">{L_NO_TO_RECIPIENT}</span>
@@ -154,7 +151,7 @@
 		<td class="row2">
 		<!-- BEGIN bcc_recipient -->
 			<span class="genmed nowrap"><strong>
-			<!-- IF bcc_recipient.IS_GROUP --><a href="{bcc_recipient.U_VIEW}"><span class="sep">{bcc_recipient.NAME}</span></a><!-- ELSE -->{bcc_recipient.NAME_FULL}<!-- ENDIF --></strong>&nbsp;<!-- IF not S_EDIT_POST --><input class="post" type="submit" name="remove_{bcc_recipient.TYPE}[{bcc_recipient.UG_ID}]" value="{L_REMOVE}" />&nbsp;<!-- ENDIF -->
+			<!-- IF bcc_recipient.IS_GROUP --><a href="{bcc_recipient.U_VIEW}" style="color: {{ to_recipient.COLOUR }}"><span class="sep">{bcc_recipient.NAME}</span></a><!-- ELSE -->{bcc_recipient.NAME_FULL}<!-- ENDIF --></strong>&nbsp;<!-- IF not S_EDIT_POST --><input class="post" type="submit" name="remove_{bcc_recipient.TYPE}[{bcc_recipient.UG_ID}]" value="{L_REMOVE}" />&nbsp;<!-- ENDIF -->
 			</span>
 		<!-- BEGINELSE -->
 			<span class="genmed">{L_NO_BCC_RECIPIENT}</span>
@@ -166,7 +163,11 @@
 <!-- EVENT posting_editor_subject_before -->
 <tr>
 	<td class="row1" width="22%"><b class="genmed">{L_SUBJECT}{L_COLON}</b></td>
-	<td class="row2" width="78%"><input class="post" style="width:450px" type="text" name="subject" size="45" maxlength="<!-- IF S_NEW_MESSAGE -->120<!-- ELSE -->124<!-- ENDIF -->" tabindex="2" value="{SUBJECT}" /></td>
+	<td class="row2" width="78%">
+		<!-- EVENT posting_editor_subject_prepend -->
+		<input class="post" style="width:450px" type="text" name="subject" size="45" maxlength="<!-- IF S_NEW_MESSAGE -->120<!-- ELSE -->124<!-- ENDIF -->" tabindex="2" value="{SUBJECT}" />
+		<!-- EVENT posting_editor_subject_append -->
+	</td>
 </tr>
 <!-- EVENT posting_editor_subject_after -->
 <tr>
@@ -336,7 +337,7 @@
 <!-- IF S_TOPIC_TYPE_ANNOUNCE or S_TOPIC_TYPE_STICKY -->
 	<tr>
 		<td class="row1"><b class="genmed">{L_STICK_TOPIC_FOR}{L_COLON}</b><br /><span class="gensmall">{L_STICKY_ANNOUNCE_TIME_LIMIT}</span></td>
-		<td class="row2"><input class="post" type="number" min="0" max="999" name="topic_time_limit" size="3" maxlength="3" value="{TOPIC_TIME_LIMIT}" />&nbsp;<b class="gen">{L_DAYS}</b> <span class="gensmall">{L_STICK_TOPIC_FOR_EXPLAIN}</span></td>
+		<td class="row2"><input class="post" type="number" min="0" max="999" name="topic_time_limit" value="{TOPIC_TIME_LIMIT}" />&nbsp;<b class="gen">{L_DAYS}</b> <span class="gensmall">{L_STICK_TOPIC_FOR_EXPLAIN}</span></td>
 	</tr>
 <!-- ENDIF -->
 

@@ -1,5 +1,7 @@
 <!-- INCLUDE overall_header.html -->
 
+<!-- EVENT mcp_move_before -->
+
 <div id="pagecontent">
 
 	<form name="confirm" action="{S_CONFIRM_ACTION}" method="post">
@@ -14,6 +16,7 @@
 				<span class="gen error">{ADDITIONAL_MSG}</span><br />
 			<!-- ENDIF -->
 			<!-- IF S_FORUM_SELECT -->
+				{% EVENT mcp_move_destination_forum_before %}
 				<span class="gen"><br />{L_SELECT_DESTINATION_FORUM}&nbsp;&nbsp;</span>
 					<select name="to_forum_id">{S_FORUM_SELECT}</select><br />
 				<!-- IF S_CAN_LEAVE_SHADOW -->
@@ -24,6 +27,7 @@
 				<!-- ENDIF -->
 				<br />{S_HIDDEN_FIELDS}<span class="gen">{MESSAGE_TEXT}</span><br /><br />
 				<input type="submit" name="confirm" value="{YES_VALUE}" class="btnmain" />&nbsp;&nbsp;<input type="submit" name="cancel" value="{L_NO}" class="btnlite" />
+				{% EVENT mcp_move_destination_forum_after %}
 			<!-- ELSE -->
 				<span class="gen">{L_NO_DESTINATION_FORUM}</span><br /><br />
 					{S_HIDDEN_FIELDS}

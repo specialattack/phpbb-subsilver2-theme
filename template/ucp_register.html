@@ -15,6 +15,20 @@
 // ]]>
 </script>
 
+{% if PROVIDER_TEMPLATE_FILE %}
+<table class="tablebg" width="100%" cellspacing="1">
+	<tr>
+		<th colspan="2" valign="middle">{{ SITENAME }} - {{ lang('OAUTH_REGISTRATION') }}</th>
+	</tr>
+
+	<tr>
+		<td class="row1" colspan="2">
+			{% include PROVIDER_TEMPLATE_FILE %}
+		</td>
+	</tr>
+</table>
+{% endif %}
+
 <form name="register" method="post" action="{S_UCP_ACTION}">
 
 <table class="tablebg" width="100%" cellspacing="1">
@@ -90,6 +104,8 @@
 		<td class="row3" colspan="2"><span class="gensmall">{L_COPPA_EXPLAIN}</span></td>
 	</tr>
 <!-- ENDIF -->
+
+<!-- EVENT ucp_register_buttons_before -->
 
 <tr>
 	<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" id="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" name="reset" /></td>

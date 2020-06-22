@@ -9,33 +9,38 @@
 		<th>{MESSAGE_TITLE}</th>
 	</tr>
 	<tr>
-		<td class="row1" align="center">
-			<br />
-			<p class="gen">{MESSAGE_TEXT}</p>
-			<br />
+		<td class="row1">
+			<div style="max-width: 800px; margin: auto;">
+				<br />
+				<p class="gen" style="text-align: center;">{MESSAGE_TEXT}</p>
+				<br />
 
-			<!-- IF not S_SHADOW_TOPICS -->
-			<table border="0" width="90%" cellspacing="2" cellpadding="1">
-			<!-- IF not S_SOFTDELETED and S_ALLOWED_DELETE and S_ALLOWED_SOFTDELETE -->
-				<tr>
-					<td class="row1" width="22%"><b class="gen">{L_DELETE_PERMANENTLY}{L_COLON}</b></td>
-					<td class="row1" width="78%">
+				<!-- IF not S_SHADOW_TOPICS -->
+					<!-- IF not S_SOFTDELETED and S_ALLOWED_DELETE and S_ALLOWED_SOFTDELETE -->
+						<div style="display: inline-block; text-align: left; margin-right: 2em;">
+							<b class="gen">{L_DELETE_PERMANENTLY}{L_COLON}</b>
+						</div>
 						<input id="delete_permanent" name="delete_permanent" type="checkbox" value="1" {S_CHECKED_PERMANENT} />
-						<!-- IF S_TOPIC_MODE -->{L_DELETE_TOPIC_PERMANENTLY}<!-- ELSE -->{L_DELETE_POST_PERMANENTLY}<!-- ENDIF -->
-					</td>
-				</tr>
-			<!-- ENDIF -->
-				<tr>
-					<td class="row1" valign="top"><span class="gen"><b>{L_DELETE_REASON}{L_COLON}</b></span><br /><span class="gensmall">{L_DELETE_REASON_EXPLAIN}</span></td>
-					<td class="row1"><input type="text" name="delete_reason" value="" class="inputbox autowidth" maxlength="120" size="45" /></td>
-				</tr>
-			</table>
-			<br />
-			<!-- ENDIF -->
+						<!-- IF S_TOPIC_MODE -->{DELETE_TOPIC_PERMANENTLY_EXPLAIN}<!-- ELSE -->{DELETE_POST_PERMANENTLY_EXPLAIN}<!-- ENDIF -->
+						<br /><br />
+					<!-- ENDIF -->
 
-			{S_HIDDEN_FIELDS}
-			<input type="submit" name="confirm" value="{L_YES}" class="btnmain" />&nbsp;&nbsp;
-			<input type="submit" name="cancel" value="{L_NO}" class="btnlite" />
+					{% EVENT confirm_delete_body_delete_reason_before %}
+
+					<div style="display: inline-block; text-align: left; margin-right: 2em;">
+						<span class="gen"><b>{L_DELETE_REASON}{L_COLON}</b></span><br /><span class="gensmall">{L_DELETE_REASON_EXPLAIN}</span>
+					</div>
+					<input type="text" name="delete_reason" value="" class="inputbox autowidth" maxlength="120" size="45" />
+					<br /><br />
+
+				<!-- ENDIF -->
+
+				<p style="text-align: center;">
+					{S_HIDDEN_FIELDS}
+					<input type="submit" name="confirm" value="{L_YES}" class="btnmain" />&nbsp;&nbsp;
+					<input type="submit" name="cancel" value="{L_NO}" class="btnlite" />
+				</p>
+			</div>
 		</td>
 	</tr>
 	</table>

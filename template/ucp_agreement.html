@@ -39,7 +39,19 @@
 			<table width="90%" cellspacing="2" cellpadding="2" border="0" align="center">
 			<tr>
 				<!-- IF S_SHOW_COPPA -->
-					<td class="gen" align="center"><br />{L_COPPA_BIRTHDAY}<br /><br /><a href="{U_COPPA_NO}">{L_COPPA_NO}</a> :: <a href="{U_COPPA_YES}">{L_COPPA_YES}</a><br /><br /></td>
+					<td class="gen" align="center">
+						<br />
+						{L_COPPA_BIRTHDAY}
+						<br /><br />
+						<button type="submit" name="coppa_no" id="coppa_no" class="hyperlink">
+							{L_COPPA_NO}
+						</button>
+						::
+						<button type="submit" name="coppa_yes" id="coppa_yes" class="hyperlink">
+							{L_COPPA_YES}
+						</button>
+						<br /><br />
+					</td>
 				<!-- ELSE -->
 					<td>
 						<!-- EVENT ucp_agreement_terms_before -->

@@ -53,7 +53,10 @@
 		<td class="row1" width="100%">
 			<span class="genmed">
 				<!-- EVENT index_body_block_online_prepend -->
-				{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br /><br />{LOGGED_IN_USER_LIST}
+				{TOTAL_USERS_ONLINE} ({L_ONLINE_EXPLAIN})<br />{RECORD_USERS}<br />
+				<!-- IF U_VIEWONLINE -->
+					<br />{LOGGED_IN_USER_LIST}
+				<!-- ENDIF -->
 				<!-- EVENT index_body_block_online_append -->
 			</span>
 		</td>
@@ -65,6 +68,8 @@
 	<!-- ENDIF -->
 	</table>
 <!-- ENDIF -->
+
+<!-- EVENT index_body_birthday_block_before -->
 
 <!-- IF S_DISPLAY_BIRTHDAY_LIST -->
 	<br clear="all" />
@@ -120,7 +125,7 @@
 	</tr>
 	</table>
 	{S_LOGIN_REDIRECT}
-	{S_FORM_TOKEN}
+	{S_FORM_TOKEN_LOGIN}
 	</form>
 <!-- ENDIF -->
 
@@ -128,14 +133,33 @@
 
 <table class="legend">
 <tr>
-	<td width="20" align="center">{FORUM_UNREAD_IMG}</td>
-	<td><span class="gensmall">{L_UNREAD_POSTS}</span></td>
+	<td width="20" align="center">
+		<span class="imageset forum_unread" alt="{{ lang('UNREAD_POSTS') | e('html_attr') }}">
+			{{ lang('UNREAD_POSTS') }}
+		</span>
+	</td>
+	<td><span class="gensmall">{{ lang('UNREAD_POSTS') }}</span></td>
 	<td>&nbsp;&nbsp;</td>
-	<td width="20" align="center">{FORUM_IMG}</td>
-	<td><span class="gensmall">{L_NO_UNREAD_POSTS}</span></td>
+	<td width="20" align="center">
+		<span class="imageset forum_read" alt="{{ lang('NO_UNREAD_POSTS') | e('html_attr') }}">
+			{{ lang('NO_UNREAD_POSTS') }}
+		</span>
+	</td>
+	<td><span class="gensmall">{{ lang('NO_UNREAD_POSTS') }}</span></td>
 	<td>&nbsp;&nbsp;</td>
-	<td width="20" align="center">{FORUM_LOCKED_IMG}</td>
-	<td><span class="gensmall">{L_FORUM_LOCKED}</span></td>
+	<td width="20" align="center">
+		<span class="imageset forum_unread_locked" alt="{{ lang('UNREAD_POSTS_LOCKED') | e('html_attr') }}">
+			{{ lang('UNREAD_POSTS_LOCKED') }}
+		</span>
+	</td>
+	<td><span class="gensmall">{{ lang('UNREAD_POSTS_LOCKED') }}</span></td>
+	<td>&nbsp;&nbsp;</td>
+	<td width="20" align="center">
+		<span class="imageset forum_read_locked" alt="{{ lang('NO_UNREAD_POSTS_LOCKED') | e('html_attr') }}">
+			{{ lang('NO_UNREAD_POSTS_LOCKED') }}
+		</span>
+	</td>
+	<td><span class="gensmall">{{ lang('NO_UNREAD_POSTS_LOCKED') }}</span></td>
 </tr>
 </table>
 

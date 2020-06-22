@@ -1,38 +1,51 @@
-<table class="tablebg" width="100%" cellspacing="1">
-	<!-- IF .avatar_local_cats -->
-	<tr> 
-		<td class="cat" colspan="2" align="center" valign="middle"><span class="genmed">{L_AVATAR_CATEGORY}{L_COLON} </span><select name="avatar_local_cat" id="category">
-			<!-- BEGIN avatar_local_cats -->
-			<option value="{avatar_local_cats.NAME}"<!-- IF avatar_local_cats.SELECTED --> selected="selected"<!-- ENDIF -->>{avatar_local_cats.NAME}</option>
-			<!-- END avatar_local_cats -->
-			</select>&nbsp; <input class="btnlite" tabindex="0" type="submit" value="{L_GO}" name="avatar_local_go" />
+{% if avatar_local_cats %}
+	<tr class="avatar_option_avatar_driver_local">
+		<td class="cat" colspan="2" align="center" valign="middle">
+			<span class="genmed">{{ lang('AVATAR_CATEGORY') ~ lang('COLON') }}</span>
+			<select name="avatar_local_cat" id="category">
+				{% for category in avatar_local_cats %}
+					<option value="{{ category.NAME }}" {% if category.SELECTED %} selected="selected" {% endif %}>
+						{{ category.NAME }}
+					</option>
+				{% endfor %}
+			</select>&nbsp;
+			<input class="btnlite" tabindex="0" type="submit" value="{{ lang('GO') }}" name="avatar_local_go"/>
 		</td>
 	</tr>
-	<tr> 
+	<tr class="avatar_option_avatar_driver_local">
 		<td class="row1" colspan="2" align="center">
 			<table cellspacing="1" cellpadding="4" border="0">
-			<!-- BEGIN avatar_local_row -->
-			<tr> 
-				<!-- BEGIN avatar_local_col -->
-					<td class="row1" align="center" id="av-{avatar_local_row.S_ROW_COUNT}-{avatar_local_row.avatar_local_col.S_ROW_COUNT}"><img src="{avatar_local_row.avatar_local_col.AVATAR_IMAGE}" alt="{avatar_local_row.avatar_local_col.AVATAR_NAME}" title="{avatar_local_row.avatar_local_col.AVATAR_NAME}" /></td>
-				<!-- END avatar_local_col -->
-			</tr>
-			<tr>
-				<!-- BEGIN avatar_local_option -->
-					<td class="row2" align="center"><input type="radio" class="radio" name="avatar_local_file" id="av-{avatar_local_row.S_ROW_COUNT}-{avatar_local_row.avatar_local_col.S_ROW_COUNT}" value="{avatar_local_row.avatar_local_option.S_OPTIONS_AVATAR}" /></td>
-				<!-- END avatar_local_option -->
-			</tr>
-			<!-- BEGINELSE -->
-			<tr>
-				<td class="row1" colspan="2">{L_NO_AVATAR_CATEGORY}</td>
-			</tr>
-			<!-- END avatar_local_row -->
+				{% for row in avatar_local_row %}
+					<tr>
+						{% for col in row.avatar_local_col %}
+							<td class="row1" align="center"
+								id="av-{{ row.S_ROW_COUNT }}-{{ col.S_ROW_COUNT }}">
+								<img src="{{ col.AVATAR_IMAGE }}"
+									 alt="{{ col.AVATAR_NAME }}"
+									 title="{{ col.AVATAR_NAME }}"/>
+							</td>
+						{% endfor %}
+					</tr>
+					<tr>
+						{% for option in row.avatar_local_option %}
+							<td class="row2" align="center">
+								<input type="radio" class="radio" name="avatar_local_file"
+									   id="av-{{ row.S_ROW_COUNT }}-{{ col.S_ROW_COUNT }}"
+									   value="{{ option.S_OPTIONS_AVATAR }}"
+										{% if col.CHECKED %} checked="checked" {% endif %} />
+							</td>
+						{% endfor %}
+					</tr>
+				{% else %}
+					<tr>
+						<td class="row1" colspan="2">{{ lang('NO_AVATAR_CATEGORY') }}</td>
+					</tr>
+				{% endfor %}
 			</table>
 		</td>
 	</tr>
-	<!-- ELSE -->
-	<tr>
-		<td class="row1" colspan="2"><strong>{L_NO_AVATARS}</strong></td>
+{% else %}
+	<tr class="avatar_option_avatar_driver_local">
+		<td class="row1" colspan="2"><strong>{{ lang('NO_AVATARS') }}</strong></td>
 	</tr>
-	<!-- ENDIF -->
-</table>
+{% endif %}

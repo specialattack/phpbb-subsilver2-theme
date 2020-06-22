@@ -22,7 +22,11 @@
 			<td rowspan="2" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><a name="{history_row.MSG_ID}" class="anchor"></a>
 				<table width="150" cellspacing="0">
 				<tr>
-					<td align="center" colspan="2"><span class="postauthor">{history_row.MESSAGE_AUTHOR_FULL}</span></td>
+					<td align="center" colspan="2">
+						<!-- EVENT ucp_pm_history_row_message_author_username_prepend -->
+						<span class="postauthor">{history_row.MESSAGE_AUTHOR_FULL}</span>
+						<!-- EVENT ucp_pm_history_row_message_author_username_append -->
+					</td>
 				</tr>
 				</table>
 			</td>
@@ -67,7 +71,7 @@
 				</div>
 				<div class="gensmall" style="float: {S_CONTENT_FLOW_END};">
 					<!-- EVENT ucp_pm_history_post_buttons_before -->
-					<!-- IF history_row.U_QUOTE or history_row.MESSAGE_AUTHOR_QUOTE -->	<a <!-- IF history_row.U_QUOTE -->href="{history_row.U_QUOTE}"<!-- ELSE -->href="#" onclick="addquote({history_row.MSG_ID}, '{history_row.MESSAGE_AUTHOR_QUOTE}', '{LA_WROTE}'); return false;"<!-- ENDIF --> class="imageset">{QUOTE_IMG}</a> <!-- ENDIF --> 
+					<!-- IF history_row.U_QUOTE or history_row.MESSAGE_AUTHOR_QUOTE -->	<a <!-- IF history_row.U_QUOTE -->href="{history_row.U_QUOTE}"<!-- ELSE -->href="#" onclick="addquote({history_row.MSG_ID}, '{history_row.MESSAGE_AUTHOR_QUOTE}', '{LA_WROTE}', {time:{history_row.MESSAGE_TIME},user_id:{history_row.USER_ID}}); return false;"<!-- ENDIF --> class="imageset">{QUOTE_IMG}</a> <!-- ENDIF -->
 					<!-- IF history_row.U_POST_REPLY_PM --><a href="{history_row.U_POST_REPLY_PM}" class="imageset">{REPLY_IMG}</a><!-- ENDIF -->&nbsp;
 					<!-- EVENT ucp_pm_history_post_buttons_after -->
 				</div>

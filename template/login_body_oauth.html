@@ -1,7 +1,7 @@
-<!-- BEGIN oauth -->
-	<tr>
-		<td>
-			<a href="{oauth.REDIRECT_URL}">{oauth.SERVICE_NAME}</a>
-		</td>
-	</tr>
-<!-- END oauth -->
+{% for oauth in oauth %}
+<tr>
+	<td>
+		<a href="{oauth.REDIRECT_URL}" class="button2">{oauth.SERVICE_NAME}</a>
+	</td>
+</tr>
+{% endfor %}

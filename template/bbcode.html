@@ -13,12 +13,58 @@
 <!-- END quote_username_open -->
 
 <!-- BEGIN quote_open -->
-<div class="quotetitle"><b>{L_QUOTE}{L_COLON}</b></div><div class="quotecontent">
+<div class="quotetitle">{L_QUOTE}{L_COLON}</div><div class="quotecontent">
 <!-- END quote_open -->
 
 <!-- BEGIN quote_close -->
 </div>
 <!-- END quote_close -->
+
+<!-- BEGIN quote_extended -->
+<div class="quotetitle">
+	<xsl:if test="not(@author)">
+		<xsl:attribute name="class">uncited</xsl:attribute>
+	</xsl:if>
+	<div>
+		<xsl:choose>
+			<xsl:when test="@author">
+				<xsl:choose>
+					<xsl:when test="@url">
+						<a href="{@url}" class="postlink"><xsl:value-of select="@author"/></a>
+					</xsl:when>
+					<xsl:when test="@profile_url">
+						<a href="{@profile_url}"><xsl:value-of select="@author"/></a>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:value-of select="@author"/>
+					</xsl:otherwise>
+				</xsl:choose>
+				<xsl:text> </xsl:text>
+				<xsl:value-of select="$L_WROTE"/>
+				<xsl:value-of select="$L_COLON"/>
+				<xsl:if test="@post_url">
+					<xsl:text> </xsl:text>
+					<a href="{@post_url}" data-post-id="{@post_id}" onclick="if(document.getElementById(hash.substr(1)))href=hash">&#8593;</a>
+				</xsl:if>
+				<xsl:if test="@msg_url">
+					<xsl:text> </xsl:text>
+					<a href="{@msg_url}" data-msg-id="{@msg_id}">&#8593;</a>
+				</xsl:if>
+				<xsl:if test="@date">
+					<div class="quotedate"><xsl:value-of select="@date"/></div>
+				</xsl:if>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$L_QUOTE"/>
+				<xsl:value-of select="$L_COLON"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</div>
+</div>
+<div class="quotecontent">
+	<xsl:apply-templates/>
+</div>
+<!-- END quote_extended -->
 
 <!-- BEGIN code_open -->
 <div class="codetitle"><b>{L_CODE}{L_COLON}</b></div><pre class="codecontent">
@@ -37,14 +83,14 @@
 <!-- END inline_attachment_close -->
 
 
-<!-- BEGIN b_open --><strong><!-- END b_open -->
-<!-- BEGIN b_close --></strong><!-- END b_close -->
+<!-- BEGIN b_open --><span style="font-weight: bold;"><!-- END b_open -->
+<!-- BEGIN b_close --></span><!-- END b_close -->
 
 <!-- BEGIN u_open --><span style="text-decoration: underline"><!-- END u_open -->
 <!-- BEGIN u_close --></span><!-- END u_close -->
 
-<!-- BEGIN i_open --><em><!-- END i_open -->
-<!-- BEGIN i_close --></em><!-- END i_close -->
+<!-- BEGIN i_open --><span style="font-style: italic;"><!-- END i_open -->
+<!-- BEGIN i_close --></span><!-- END i_close -->
 
 <!-- BEGIN color --><span style="color: {COLOR}">{TEXT}</span><!-- END color -->
 

@@ -22,6 +22,8 @@
 
 				<!-- IF topic_review_row.S_IGNORE_POST -->
 				<td colspan="2">{topic_review_row.L_IGNORE_POST}</td>
+				<!-- ELSE IF topic_review_row.S_POST_DELETED -->
+				<td colspan="2">{topic_review_row.L_DELETE_POST}</td>
 				<!-- ELSE -->
 				<td rowspan="2" align="{S_CONTENT_FLOW_BEGIN}" valign="top"><a id="pr{topic_review_row.POST_ID}" class="anchor"></a>
 					<table width="150" cellspacing="0">
@@ -36,7 +38,7 @@
 						<td>&nbsp;</td>
 						<td class="gensmall" valign="middle" nowrap="nowrap"><b>{L_POST_SUBJECT}{L_COLON}</b>&nbsp;</td>
 						<td class="gensmall" width="100%" valign="middle">{topic_review_row.POST_SUBJECT}</td>
-						<td valign="top" nowrap="nowrap">&nbsp;<!-- IF topic_review_row.POSTER_QUOTE and topic_review_row.DECODED_MESSAGE --><a href="#" onclick="addquote({topic_review_row.POST_ID},'{topic_review_row.POSTER_QUOTE}', '{LA_WROTE}'); return false;" class="imageset">{QUOTE_IMG}</a><!-- ENDIF --></td>
+						<td valign="top" nowrap="nowrap">&nbsp;<!-- IF topic_review_row.POSTER_QUOTE and topic_review_row.DECODED_MESSAGE --><a href="#" onclick="addquote({topic_review_row.POST_ID},'{topic_review_row.POSTER_QUOTE}', '{LA_WROTE}', {post_id:{topic_review_row.POST_ID},time:{topic_review_row.POST_TIME},user_id:{topic_review_row.USER_ID}}); return false;" class="imageset">{QUOTE_IMG}</a><!-- ENDIF --></td>
 					</tr>
 					</table>
 				</td>

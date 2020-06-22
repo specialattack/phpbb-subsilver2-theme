@@ -141,6 +141,7 @@
 		</tr>
 		</table>
 		{S_LOGIN_REDIRECT}
+		{S_FORM_TOKEN_LOGIN}
 		</form>
 
 	<!-- ENDIF -->
@@ -195,6 +196,8 @@
 			<th>&nbsp;{L_LAST_POST}&nbsp;</th>
 		</tr>
 
+		<!-- EVENT viewforum_body_topic_row_before -->
+
 		<!-- BEGIN topicrow -->
 
 			<!-- IF topicrow.S_TOPIC_TYPE_SWITCH eq 1 -->
@@ -207,7 +210,9 @@
 				</tr>
 			<!-- ENDIF -->
 
+			<!-- EVENT viewforum_body_topicrow_row_before -->
 			<tr>
+				<!-- EVENT viewforum_body_topic_row_prepend -->
 				<td class="row1" width="25" align="center">{topicrow.TOPIC_FOLDER_IMG}</td>
 				<!-- IF S_TOPIC_ICONS -->
 					<td class="row1" width="25" align="center"><!-- IF topicrow.TOPIC_ICON_IMG --><img src="{T_ICONS_PATH}{topicrow.TOPIC_ICON_IMG}" width="{topicrow.TOPIC_ICON_IMG_WIDTH}" height="{topicrow.TOPIC_ICON_IMG_HEIGHT}" alt="" title="" /><!-- ENDIF --></td>
@@ -240,6 +245,8 @@
 					<!-- ENDIF -->
 					<!-- IF topicrow.S_POST_GLOBAL and FORUM_ID != topicrow.FORUM_ID --><p class="gensmall">{L_IN} <a href="{topicrow.U_VIEW_FORUM}">{topicrow.FORUM_NAME}</a></p><!-- ENDIF -->
 					<!-- EVENT topiclist_row_append -->
+
+					<!-- EVENT topiclist_row_topic_title_after -->
 				</td>
 				<td class="row2" width="130" align="center"><p class="topicauthor">{topicrow.TOPIC_AUTHOR_FULL}</p></td>
 				<td class="row1" width="50" align="center"><p class="topicdetails">{topicrow.REPLIES}</p></td>
@@ -250,7 +257,10 @@
 						<!-- IF not S_IS_BOT --><a href="{topicrow.U_LAST_POST}" class="imageset">{LAST_POST_IMG}</a><!-- ENDIF -->
 					</p>
 				</td>
+
+				<!-- EVENT viewforum_body_topic_row_append -->
 			</tr>
+			<!-- EVENT viewforum_body_topic_row_after -->
 
 		<!-- BEGINELSE -->
 			<!-- IF S_IS_POSTABLE -->
@@ -259,6 +269,14 @@
 					<td class="row1" colspan="7" height="30" align="center" valign="middle"><span class="gen"><!-- IF not S_SORT_DAYS -->{L_NO_TOPICS}<!-- ELSE -->{L_NO_TOPICS_TIME_FRAME}<!-- ENDIF --></span></td>
 				<!-- ELSE -->
 					<td class="row1" colspan="6" height="30" align="center" valign="middle"><span class="gen"><!-- IF not S_SORT_DAYS -->{L_NO_TOPICS}<!-- ELSE -->{L_NO_TOPICS_TIME_FRAME}<!-- ENDIF --></span></td>
+				<!-- ENDIF -->
+			</tr>
+			<!-- ELSE IF not S_HAS_SUBFORUM -->
+			<tr>
+				<!-- IF S_TOPIC_ICONS -->
+				<td class="row1" colspan="7" height="30" align="center" valign="middle"><span class="gen">{L_NO_FORUMS_IN_CATEGORY}</span></td>
+				<!-- ELSE -->
+				<td class="row1" colspan="6" height="30" align="center" valign="middle"><span class="gen">{L_NO_FORUMS_IN_CATEGORY}</span></td>
 				<!-- ENDIF -->
 			</tr>
 			<!-- ENDIF -->
@@ -305,7 +323,7 @@
 
 <!-- INCLUDE breadcrumbs.html -->
 
-<!-- IF S_DISPLAY_ONLINE_LIST -->
+<!-- IF S_DISPLAY_ONLINE_LIST and U_VIEWONLINE -->
 	<br clear="all" />
 
 	<table class="tablebg stat-block online-list" width="100%" cellspacing="1">

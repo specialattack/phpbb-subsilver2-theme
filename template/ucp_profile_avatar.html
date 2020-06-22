@@ -1,50 +1,76 @@
-<!-- INCLUDE ucp_header.html -->
+{% include 'ucp_header.html' %}
 
 <table class="tablebg" width="100%" cellspacing="1">
-<tr>
-	<th colspan="2" valign="middle">{L_TITLE}</th>
-</tr>
-<!-- IF ERROR -->
 	<tr>
-		<td class="row3" colspan="2" align="center"><span class="gensmall error">{ERROR}</span></td>
+		<th colspan="2" valign="middle">{{ lang('TITLE') }}</th>
 	</tr>
-<!-- ENDIF -->
-<tr>
-	<td class="row1" width="35%"><b class="genmed">{L_CURRENT_IMAGE}{L_COLON} </b><br /><span class="gensmall">{L_AVATAR_EXPLAIN}</span></td>
-	<td class="row2" align="center"><br />
-		<!-- IF AVATAR -->{AVATAR}<br /><br /><input type="checkbox" class="radio" name="avatar_delete" />&nbsp;<span class="gensmall">{L_DELETE_AVATAR}</span>
-		<!-- ELSE --><img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" />
-		<!-- ENDIF --></td>
-</tr>
-<!-- IF not S_AVATARS_ENABLED -->
+	{% if ERROR %}
+		<tr>
+			<td class="row3" colspan="2" align="center"><span class="gensmall error">{{ ERROR }}</span></td>
+		</tr>
+	{% endif %}
 	<tr>
-		<td class="row3" colspan="2" align="center">{L_AVATAR_FEATURES_DISABLED}</td>
+		<td class="row1" width="35%">
+			<b class="genmed">{{ lang('CURRENT_IMAGE') ~ lang('COLON') }}</b>
+			<br/>
+			<span class="gensmall">{{ lang('AVATAR_EXPLAIN') }}</span>
+		</td>
+		<td class="row2" align="center">
+			<br/>
+			{% if AVATAR %}
+				{{ AVATAR }}
+				<br/><br/>
+				<input type="checkbox" class="radio" name="avatar_delete"/>
+				&nbsp;
+				<span class="gensmall">{{ lang('DELETE_AVATAR') }}</span>
+			{% else %}
+				<img src="{{ T_THEME_PATH }}/images/no_avatar.gif" alt=""/>
+			{% endif %}
+		</td>
 	</tr>
-<!-- ENDIF -->
+	{% if not S_AVATARS_ENABLED %}
+		<tr>
+			<td class="row3" colspan="2" align="center">{{ lang('AVATAR_FEATURES_DISABLED') }}</td>
+		</tr>
+	{% endif %}
 	<tr>
-		<th colspan="2">{L_AVATAR_SELECT}</th>
+		<th colspan="2">{{ lang('AVATAR_SELECT') }}</th>
 	</tr>
 	<tr>
-		<td class="row1" width="35%"><b class="genmed">{L_AVATAR_TYPE}{L_COLON}</b></td>
+		<td class="row1" width="35%">
+			<b class="genmed">{{ lang('AVATAR_TYPE') ~ lang('COLON') }}</b>
+		</td>
 		<td class="row2">
 			<select name="avatar_driver" id="avatar_driver" data-togglable-settings="true">
-				<!-- BEGIN avatar_drivers -->
-				<option value="{avatar_drivers.DRIVER}"<!-- IF avatar_drivers.SELECTED --> selected="selected"<!-- ENDIF --> data-toggle-setting=".avatar_option_{avatar_drivers.DRIVER}">{avatar_drivers.L_TITLE}</option>
-				<!-- END avatar_drivers -->
-			</select></td>
+				{% for driver in avatar_drivers %}
+					<option value="{{ driver.DRIVER }}" {% if driver.SELECTED %} selected="selected" {% endif %}
+					        data-toggle-setting=".avatar_option_{{ driver.DRIVER }}">{{ driver.L_TITLE }}</option>
+				{% endfor %}
+			</select>
+		</td>
 	</tr>
-<!-- BEGIN avatar_drivers -->
-	<tr class="avatar_option_{avatar_drivers.DRIVER}">
-		<td class="row1" width="35%" colspan="2"><noscript><b class="genmed">{avatar_drivers.L_TITLE} </b><br /></noscript>{avatar_drivers.L_EXPLAIN}</span></td>
-	</tr>
-	<tr class="avatar_option_{avatar_drivers.DRIVER}">
-		<td colspan="2" style="padding: 0">{avatar_drivers.OUTPUT}</td>
-	</tr>
-<!-- END avatar_drivers -->
+	{% for driver in avatar_drivers %}
+		<tr class="avatar_option_{{ driver.DRIVER }}">
+			<td class="row1" width="35%" colspan="2">
+				<noscript><b class="genmed">{{ driver.L_TITLE }} </b><br/></noscript>
+				{{ driver.L_EXPLAIN }}
+			</td>
+		</tr>
+		{{ driver.OUTPUT }}
+	{% endfor %}
 
 	<tr>
-		<td class="cat" colspan="2" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" type="submit" name="submit" value="{L_SUBMIT}" />&nbsp;&nbsp;<!-- IF S_IN_AVATAR_GALLERY --><input class="btnlite" type="submit" name="cancel" value="{L_CANCEL}" /><!-- ELSE --><input class="btnlite" type="reset" value="{L_RESET}" name="reset" /><!-- ENDIF --></td>
+		<td class="cat" colspan="2" align="center">
+			{{ S_HIDDEN_FIELDS }}
+			<input class="btnmain" type="submit" name="submit" value="{{ lang('SUBMIT') }}"/>
+			&nbsp;&nbsp;
+			{% if S_IN_AVATAR_GALLERY %}
+				<input class="btnlite" type="submit" name="cancel" value="{{ lang('CANCEL') }}"/>
+			{% else %}
+				<input class="btnlite" type="reset" value="{{ lang('RESET') }}" name="reset"/>
+			{% endif %}
+		</td>
 	</tr>
 </table>
 
-<!-- INCLUDE ucp_footer.html -->
+{% include 'ucp_footer.html' %}
