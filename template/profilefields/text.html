@@ -1,3 +1,4 @@
-<!-- BEGIN text -->
-<textarea name="{text.FIELD_IDENT}" rows="{text.FIELD_ROWS}" cols="{text.FIELD_COLS}">{text.FIELD_VALUE}</textarea>
-<!-- END text -->
+{% for control in text %}
+	<textarea name="{{ control.FIELD_IDENT }}" rows="{{ control.FIELD_ROWS }}"
+	          cols="{{ control.FIELD_COLS }}">{{ control.FIELD_VALUE }}</textarea>
+{% endfor %}

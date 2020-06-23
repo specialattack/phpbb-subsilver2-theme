@@ -1,5 +1,10 @@
-<!-- BEGIN date -->
-<span class="genmed">{L_DAY}{L_COLON}</span> <select name="{date.FIELD_IDENT}_day">{date.S_DAY_OPTIONS}</select>
-<span class="genmed">{L_MONTH}{L_COLON}</span> <select name="{date.FIELD_IDENT}_month">{date.S_MONTH_OPTIONS}</select>
-<span class="genmed">{L_YEAR}{L_COLON}</span> <select name="{date.FIELD_IDENT}_year">{date.S_YEAR_OPTIONS}</select>
-<!-- END date -->
+{% for control in date %}
+	<span class="genmed">{{ lang('DAY') }}{{ lang('COLON') }}</span>
+	<select name="{{ control.FIELD_IDENT }}_day">{{ control.S_DAY_OPTIONS }}</select>
+
+	<span class="genmed">{{ lang('MONTH') }}{{ lang('COLON') }}</span>
+	<select name="{{ control.FIELD_IDENT }}_month">{{ control.S_MONTH_OPTIONS }}</select>
+
+	<span class="genmed">{{ lang('YEAR') }}{{ lang('COLON') }}</span>
+	<select name="{{ control.FIELD_IDENT }}_year">{{ control.S_YEAR_OPTIONS }}</select>
+{% endfor %}

@@ -1,3 +1,5 @@
-<!-- BEGIN string -->
-	<input type="text" class="post" name="{string.FIELD_IDENT}" size="{string.FIELD_LENGTH}" maxlength="{string.FIELD_MAXLEN}" value="{string.FIELD_VALUE}" />
-<!-- END string -->
+{% for control in string %}
+	<input type="text" class="post" name="{{ control.FIELD_IDENT }}" id="{{ control.FIELD_IDENT }}"
+	       minlength="{{ control.FIELD_MINLEN }}" maxlength="{{ control.FIELD_MAXLEN }}"
+	       size="{{ control.FIELD_LENGTH }}" value="{{ control.FIELD_VALUE }}"/>
+{% endfor %}
