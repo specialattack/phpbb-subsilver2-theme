@@ -304,6 +304,16 @@ p.topicdetails {
 	color: red;
 }
 
+.smilies {
+	vertical-align: text-bottom;
+}
+
+.emoji {
+	min-height: 18px;
+	min-width: 18px;
+	height: 1em;
+	width: 1em;
+}
 
 /* Tables
  ------------ */
