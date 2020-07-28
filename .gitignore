@@ -1,5 +1,6 @@
 *.zip
 *.tgz
+*.sh
 
 *.swp
 
@@ -7,3 +8,6 @@
 reference/
 
 update.sh
+
+# Weird WSL files
+*:Zone.Identifier
