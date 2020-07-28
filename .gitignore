@@ -5,3 +5,6 @@
 
 .idea/
 reference/
+
+# Weird WSL files
+*:Zone.Identifier
