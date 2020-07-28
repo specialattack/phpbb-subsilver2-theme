@@ -1,7 +1,11 @@
 *.zip
 *.tgz
+*.sh
 
 *.swp
 
 .idea/
 reference/
+
+# Weird WSL files
+*:Zone.Identifier
