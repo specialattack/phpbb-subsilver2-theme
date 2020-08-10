@@ -823,22 +823,22 @@ a.imageset {
 	padding-top: 18px;
 }
 .imageset.topic_read {
-	background-image: url("./images/topic_read.gif");
+	background-image: url("./images/topic_read.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_read_mine {
-	background-image: url("./images/topic_read_mine.gif");
+	background-image: url("./images/topic_read_mine.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_read_hot {
-	background-image: url("./images/topic_read_hot.gif");
+	background-image: url("./images/topic_read_hot.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_read_hot_mine {
-	background-image: url("./images/topic_read_hot_mine.gif");
+	background-image: url("./images/topic_read_hot_mine.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
@@ -853,22 +853,22 @@ a.imageset {
 	padding-top: 18px;
 }
 .imageset.topic_unread {
-	background-image: url("./images/topic_unread.gif");
+	background-image: url("./images/topic_unread.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_unread_mine {
-	background-image: url("./images/topic_unread_mine.gif");
+	background-image: url("./images/topic_unread_mine.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_unread_hot {
-	background-image: url("./images/topic_unread_hot.gif");
+	background-image: url("./images/topic_unread_hot.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_unread_hot_mine {
-	background-image: url("./images/topic_unread_hot_mine.gif");
+	background-image: url("./images/topic_unread_hot_mine.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
