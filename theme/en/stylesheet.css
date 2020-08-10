@@ -1,26 +1,6 @@
 /* EN Language Pack */
-.imageset.phpbb_aol-icon, .imageset.icon_contact_aim {
-	background-image: url("./icon_contact_aim.gif");
-	padding-left: 72px;
-	padding-top: 20px;
-}
 .imageset.icon_contact_email {
 	background-image: url("./icon_contact_email.gif");
-	padding-left: 72px;
-	padding-top: 20px;
-}
-.imageset.phpbb_icq-icon, .imageset.icon_contact_icq {
-	background-image: url("./icon_contact_icq.gif");
-	padding-left: 72px;
-	padding-top: 20px;
-}
-.imageset.icon_contact_jabber {
-	background-image: url("./icon_contact_jabber.gif");
-	padding-left: 72px;
-	padding-top: 20px;
-}
-.imageset.phpbb_wlm-icon, .imageset.icon_contact_msnm {
-	background-image: url("./icon_contact_msnm.gif");
 	padding-left: 72px;
 	padding-top: 20px;
 }
@@ -29,8 +9,62 @@
 	padding-left: 72px;
 	padding-top: 20px;
 }
+.imageset.icon_contact_jabber {
+	background-image: url("./icon_contact_jabber.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: AOL Instant Messaging is no more */
+.imageset.phpbb_aol-icon, .imageset.icon_contact_aim {
+	background-image: url("./icon_contact_aim.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+.imageset.phpbb_icq-icon, .imageset.icon_contact_icq {
+	background-image: url("./icon_contact_icq.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Windows Live Messenger/MSN is no more */
+.imageset.phpbb_wlm-icon, .imageset.icon_contact_msnm {
+	background-image: url("./icon_contact_msnm.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Yahoo Messenger is no more */
 .imageset.phpbb_yahoo-icon, .imageset.icon_contact_yahoo {
 	background-image: url("./icon_contact_yahoo.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Google+ is no more */
+/* TODO: Needs Icon */
+.imageset.phpbb_googleplus-icon, .imageset.icon_contact_googleplus {
+	background-image: url("./icon_contact_googleplus.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Needs Icon */
+.imageset.phpbb_facebook-icon, .imageset.icon_contact_facebook {
+	background-image: url("./icon_contact_facebook.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Needs Icon */
+.imageset.phpbb_skype-icon, .imageset.icon_contact_skype {
+	background-image: url("./icon_contact_skype.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Needs Icon */
+.imageset.phpbb_twitter-icon, .imageset.icon_contact_twitter {
+	background-image: url("./icon_contact_twitter.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Needs Icon */
+.imageset.phpbb_youtube-icon, .imageset.icon_contact_youtube {
+	background-image: url("./icon_contact_youtube.gif");
 	padding-left: 72px;
 	padding-top: 20px;
 }
