@@ -783,37 +783,37 @@ a.imageset {
 	padding-top: 12px;
 }
 .imageset.forum_link {
-	background-image: url("./images/forum_link.gif");
+	background-image: url("./images/forum_link.svg");
 	padding-left: 46px;
 	padding-top: 25px;
 }
 .imageset.forum_read {
-	background-image: url("./images/forum_read.gif");
+	background-image: url("./images/forum_read.svg");
 	padding-left: 46px;
 	padding-top: 25px;
 }
 .imageset.forum_read_locked {
-	background-image: url("./images/forum_read_locked.gif");
+	background-image: url("./images/forum_read_locked.svg");
 	padding-left: 46px;
 	padding-top: 25px;
 }
 .imageset.forum_read_subforum {
-	background-image: url("./images/forum_read_subforum.gif");
+	background-image: url("./images/forum_read_subforum.svg");
 	padding-left: 46px;
 	padding-top: 25px;
 }
 .imageset.forum_unread {
-	background-image: url("./images/forum_unread.gif");
+	background-image: url("./images/forum_unread.svg");
 	padding-left: 46px;
 	padding-top: 25px;
 }
 .imageset.forum_unread_locked {
-	background-image: url("./images/forum_unread_locked.gif");
+	background-image: url("./images/forum_unread_locked.svg");
 	padding-left: 46px;
 	padding-top: 25px;
 }
 .imageset.forum_unread_subforum {
-	background-image: url("./images/forum_unread_subforum.gif");
+	background-image: url("./images/forum_unread_subforum.svg");
 	padding-left: 46px;
 	padding-top: 25px;
 }
@@ -823,22 +823,22 @@ a.imageset {
 	padding-top: 18px;
 }
 .imageset.topic_read {
-	background-image: url("./images/topic_read.gif");
+	background-image: url("./images/topic_read.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_read_mine {
-	background-image: url("./images/topic_read_mine.gif");
+	background-image: url("./images/topic_read_mine.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_read_hot {
-	background-image: url("./images/topic_read_hot.gif");
+	background-image: url("./images/topic_read_hot.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_read_hot_mine {
-	background-image: url("./images/topic_read_hot_mine.gif");
+	background-image: url("./images/topic_read_hot_mine.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
@@ -853,22 +853,22 @@ a.imageset {
 	padding-top: 18px;
 }
 .imageset.topic_unread {
-	background-image: url("./images/topic_unread.gif");
+	background-image: url("./images/topic_unread.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_unread_mine {
-	background-image: url("./images/topic_unread_mine.gif");
+	background-image: url("./images/topic_unread_mine.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_unread_hot {
-	background-image: url("./images/topic_unread_hot.gif");
+	background-image: url("./images/topic_unread_hot.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
 .imageset.topic_unread_hot_mine {
-	background-image: url("./images/topic_unread_hot_mine.gif");
+	background-image: url("./images/topic_unread_hot_mine.svg");
 	padding-left: 19px;
 	padding-top: 18px;
 }
@@ -1055,28 +1055,8 @@ a.imageset {
 
 
 /* English images for fallback */
-.imageset.phpbb_aol-icon, .imageset.icon_contact_aim {
-	background-image: url("./en/icon_contact_aim.gif");
-	padding-left: 72px;
-	padding-top: 20px;
-}
 .imageset.icon_contact_email {
 	background-image: url("./en/icon_contact_email.gif");
-	padding-left: 72px;
-	padding-top: 20px;
-}
-.imageset.phpbb_icq-icon, .imageset.icon_contact_icq {
-	background-image: url("./en/icon_contact_icq.gif");
-	padding-left: 72px;
-	padding-top: 20px;
-}
-.imageset.icon_contact_jabber {
-	background-image: url("./en/icon_contact_jabber.gif");
-	padding-left: 72px;
-	padding-top: 20px;
-}
-.imageset.phpbb_wlm-icon, .imageset.icon_contact_msnm {
-	background-image: url("./en/icon_contact_msnm.gif");
 	padding-left: 72px;
 	padding-top: 20px;
 }
@@ -1085,8 +1065,62 @@ a.imageset {
 	padding-left: 72px;
 	padding-top: 20px;
 }
+.imageset.icon_contact_jabber {
+	background-image: url("./en/icon_contact_jabber.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: AOL Instant Messaging is no more */
+.imageset.phpbb_aol-icon, .imageset.icon_contact_aim {
+	background-image: url("./en/icon_contact_aim.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+.imageset.phpbb_icq-icon, .imageset.icon_contact_icq {
+	background-image: url("./en/icon_contact_icq.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Windows Live Messenger/MSN is no more */
+.imageset.phpbb_wlm-icon, .imageset.icon_contact_msnm {
+	background-image: url("./en/icon_contact_msnm.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Yahoo Messenger is no more */
 .imageset.phpbb_yahoo-icon, .imageset.icon_contact_yahoo {
 	background-image: url("./en/icon_contact_yahoo.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Google+ is no more */
+/* TODO: Needs Icon */
+.imageset.phpbb_googleplus-icon, .imageset.icon_contact_googleplus {
+	background-image: url("./en/icon_contact_googleplus.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Needs Icon */
+.imageset.phpbb_facebook-icon, .imageset.icon_contact_facebook {
+	background-image: url("./en/icon_contact_facebook.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Needs Icon */
+.imageset.phpbb_skype-icon, .imageset.icon_contact_skype {
+	background-image: url("./en/icon_contact_skype.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Needs Icon */
+.imageset.phpbb_twitter-icon, .imageset.icon_contact_twitter {
+	background-image: url("./en/icon_contact_twitter.gif");
+	padding-left: 72px;
+	padding-top: 20px;
+}
+/* TODO: Needs Icon */
+.imageset.phpbb_youtube-icon, .imageset.icon_contact_youtube {
+	background-image: url("./en/icon_contact_youtube.gif");
 	padding-left: 72px;
 	padding-top: 20px;
 }
@@ -1161,7 +1195,7 @@ a.imageset {
 	padding-top: 27px;
 }
 .imageset.button_topic_new {
-	background-image: url("./en/button_topic_new.gif");
+	background-image: url("./en/button_topic_new.svg");
 	padding-left: 97px;
 	padding-top: 27px;
 }
