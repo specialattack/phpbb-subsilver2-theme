@@ -652,6 +652,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .codecontent {
+	display: block;
 	direction: ltr;
 	margin: 0 5px 10px 5px;
 	padding: 5px;
@@ -663,6 +664,10 @@ input:focus, select:focus, textarea:focus {
 	font-size: 0.85em;
 	font-family: Monaco, 'Courier New', monospace;
 	background-color: #FAFAFA;
+}
+
+pre > .codecontent {
+	font-size: inherit;
 }
 
 .postimage {
