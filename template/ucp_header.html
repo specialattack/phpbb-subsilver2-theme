@@ -129,7 +129,7 @@
 
 			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
 			<!-- BEGIN friends_online -->
-				<li>{friends_online.USERNAME_FULL}
+				<li>{% EVENT ucp_header_friends_online_username_full_prepend %}{friends_online.USERNAME_FULL}{% EVENT ucp_header_friends_online_username_full_append %}
 				<!-- IF S_SHOW_PM_BOX -->
 					&nbsp;[ <input class="post" style="font-size: 90%;" type="submit" name="add_to[{friends_online.USER_ID}]" value="{L_ADD}" /> ]
 				<!-- ENDIF -->
@@ -145,7 +145,7 @@
 
 			<ul class="nav" style="margin: 0; padding: 0; list-style-type: none; line-height: 175%;">
 			<!-- BEGIN friends_offline -->
-				<li>{friends_offline.USERNAME_FULL}
+				<li>{% EVENT ucp_header_friends_offline_username_full_prepend %}{friends_offline.USERNAME_FULL}{% EVENT ucp_header_friends_offline_username_full_append %}
 				<!-- IF S_SHOW_PM_BOX -->
 					&nbsp;[ <input class="post" style="font-size: 90%;" type="submit" name="add_to[{friends_offline.USER_ID}]" value="{L_ADD}" /> ]
 				<!-- ENDIF -->

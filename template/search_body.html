@@ -39,8 +39,8 @@
 	<tr>
 		<td class="row1" width="25%"><b class="genmed">{L_RESULT_DAYS}{L_COLON} </b></td>
 		<td class="row2" width="25%" nowrap="nowrap">{S_SELECT_SORT_DAYS}</td>
-		<td class="row1" nowrap="nowrap"><b class="genmed">{L_RETURN_FIRST}{L_COLON} </b></td>
-		<td class="row2" nowrap="nowrap"><select name="ch">{S_CHARACTER_OPTIONS}</select> <span class="genmed">{L_POST_CHARACTERS}</span></td>
+		<td class="row1" nowrap="nowrap"><b class="genmed">{L_RETURN_FIRST}{L_COLON} </b><br /><span class="gensmall">{L_RETURN_FIRST_EXPLAIN}</span></td>
+		<td class="row2" nowrap="nowrap"><input name="ch" type="number" value="{{ DEFAULT_RETURN_CHARS }}" min="0" max="9999" title="{{ lang('RETURN_FIRST') }}"> <span class="genmed">{L_POST_CHARACTERS}</span></td>
 	</tr>
 	<tr>
 		<td class="cat" colspan="4" align="center">{S_HIDDEN_FIELDS}<input class="btnmain" name="submit" type="submit" value="{L_SEARCH}" />&nbsp;&nbsp;<input class="btnlite" type="reset" value="{L_RESET}" /></td>

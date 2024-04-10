@@ -115,7 +115,11 @@
 	<td class="row1" colspan="2">
 	<!-- IF U_EDIT --><div class="gen" style="float: {S_CONTENT_FLOW_END};"><a href="{U_EDIT}" class="imageset">{EDIT_IMG}</a></div><!-- ENDIF -->
 
+	 {% EVENT mcp_post_text_before %}
+
 	<div class="postbody">{POST_PREVIEW}</div>
+
+	{% EVENT mcp_post_text_after %}
 
 	<!-- IF S_HAS_ATTACHMENTS -->
 		<br clear="all" /><br />
