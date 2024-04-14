@@ -67,10 +67,12 @@
 </tr>
 <!-- EVENT ucp_register_credentials_after -->
 <!-- EVENT ucp_register_options_before -->
+{% if S_LANG_OPTIONS %}
 <tr>
-	<td class="row1"><b class="genmed">{L_LANGUAGE}{L_COLON} </b></td>
-	<td class="row2"><select name="lang" onchange="change_language(this.value); return false;">{S_LANG_OPTIONS}</select></td>
+	<td class="row1"><b class="genmed">{{ lang('LANGUAGE') ~ lang('COLON') }} </b></td>
+	<td class="row2"><select name="lang" onchange="change_language(this.value); return false;">{{ S_LANG_OPTIONS }}</select></td>
 </tr>
+{% endif %}
 
 <!-- INCLUDE timezone_option.html -->
 
