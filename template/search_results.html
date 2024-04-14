@@ -28,6 +28,7 @@
 		<th nowrap="nowrap">&nbsp;{L_REPLIES}&nbsp;</th>
 		<th nowrap="nowrap">&nbsp;{L_VIEWS}&nbsp;</th>
 		<th nowrap="nowrap">&nbsp;{L_LAST_POST}&nbsp;</th>
+		{% EVENT search_results_topic_header_lastpost_after %}
 	</tr>
 	<!-- BEGIN searchresults -->
 		<!-- EVENT search_results_topic_before -->
@@ -75,6 +76,7 @@
 					<a href="{searchresults.U_LAST_POST}" class="imageset">{LAST_POST_IMG}</a>
 				</p>
 			</td>
+			{% EVENT search_results_topic_row_lastpost_after %}
 		</tr>
 		<!-- EVENT search_results_topic_after -->
 	<!-- BEGINELSE -->
@@ -158,6 +160,8 @@
 <!-- INCLUDE breadcrumbs.html -->
 
 <br clear="all" />
+
+{% EVENT search_results_jumpbox_before %}
 
 <div align="{S_CONTENT_FLOW_END}"><!-- INCLUDE jumpbox.html --></div>
 

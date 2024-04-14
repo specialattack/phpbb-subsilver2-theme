@@ -13,11 +13,12 @@
 	<td class="cat" colspan="6" align="center"><span class="gensmall">{L_DISPLAY_TOPICS}{L_COLON}</span> {S_SELECT_SORT_DAYS}&nbsp;<span class="gensmall">{L_SORT_BY}</span> {S_SELECT_SORT_KEY} {S_SELECT_SORT_DIR}&nbsp;<input class="btnlite" type="submit" name="sort" value="{L_GO}" /></td>
 </tr>
 <tr>
-	<th width="4%" nowrap="nowrap">&nbsp;</th>
+	<th width="25" nowrap="nowrap">&nbsp;</th>
 	<th nowrap="nowrap">&nbsp;{L_TOPICS}&nbsp;</th>
-	<th width="8%" nowrap="nowrap">&nbsp;{L_REPLIES}&nbsp;</th>
-	<th width="17%" nowrap="nowrap">&nbsp;{L_LAST_POST}&nbsp;</th>
-	<th width="5%" nowrap="nowrap">&nbsp;{L_MARK}&nbsp;</th>
+	<th width="130" nowrap="nowrap">&nbsp;{L_AUTHOR}&nbsp;</th>
+	<th width="50" nowrap="nowrap">&nbsp;{L_REPLIES}&nbsp;</th>
+	<th width="140" nowrap="nowrap">&nbsp;{L_LAST_POST}&nbsp;</th>
+	<th width="40" nowrap="nowrap">&nbsp;{L_MARK}&nbsp;</th>
 </tr>
 <!-- BEGIN topicrow -->
 	<tr>
@@ -30,24 +31,47 @@
 			<!-- IF topicrow.S_SELECT_TOPIC -->
 				<span class="genmed">[ <a href="{topicrow.U_SELECT_TOPIC}">{L_SELECT_MERGE}</a> ]&nbsp;</span>
 			<!-- ENDIF -->
-			<p class="topictitle">{NEWEST_POST_IMG} {topicrow.ATTACH_ICON_IMG} <!-- EVENT mcp_forum_topic_title_before --><a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a><!-- EVENT mcp_forum_topic_title_after -->
-			<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED -->
-				<a href="{topicrow.U_MCP_QUEUE}" class="imageset">{topicrow.UNAPPROVED_IMG}</a>&nbsp;
-			<!-- ENDIF -->
-			<!-- IF topicrow.S_TOPIC_DELETED or topicrow.S_POSTS_DELETED -->
-				<a href="{topicrow.U_MCP_QUEUE}" class="imageset">{topicrow.DELETED_IMG}</a>&nbsp;
-			<!-- ENDIF -->
-			<!-- IF topicrow.S_TOPIC_REPORTED and topicrow.U_MCP_REPORT -->
-				<a href="{topicrow.U_MCP_REPORT}" class="imageset">{REPORTED_IMG}</a>&nbsp;
-			<!-- ENDIF -->
-			<!-- IF topicrow.S_MOVED_TOPIC and S_CAN_DELETE -->
-				[ <a href="{topicrow.U_DELETE_TOPIC}">{L_DELETE_SHADOW_TOPIC}</a> ]&nbsp;
-			<!-- ENDIF -->
+			<p class="topictitle">
+				{% if topicrow.S_UNREAD_TOPIC %}
+					<a href="{topicrow.U_NEWEST_POST}" class="imageset">{NEWEST_POST_IMG}</a>
+				{% endif %}
+				{topicrow.ATTACH_ICON_IMG}
+				<!-- EVENT mcp_forum_topic_title_before -->
+				<a href="{topicrow.U_VIEW_TOPIC}">{topicrow.TOPIC_TITLE}</a>
+				<!-- EVENT mcp_forum_topic_title_after -->
+
+				<!-- IF topicrow.S_TOPIC_UNAPPROVED or topicrow.S_POSTS_UNAPPROVED -->
+					<a href="{topicrow.U_MCP_QUEUE}" class="imageset">{topicrow.UNAPPROVED_IMG}</a>&nbsp;
+				<!-- ENDIF -->
+				<!-- IF topicrow.S_TOPIC_DELETED or topicrow.S_POSTS_DELETED -->
+					<a href="{topicrow.U_MCP_QUEUE}" class="imageset">{topicrow.DELETED_IMG}</a>&nbsp;
+				<!-- ENDIF -->
+				<!-- IF topicrow.S_TOPIC_REPORTED and topicrow.U_MCP_REPORT -->
+					<a href="{topicrow.U_MCP_REPORT}" class="imageset">{REPORTED_IMG}</a>&nbsp;
+				<!-- ENDIF -->
+				<!-- IF topicrow.S_MOVED_TOPIC and S_CAN_DELETE -->
+					[ <a href="{topicrow.U_DELETE_TOPIC}">{L_DELETE_SHADOW_TOPIC}</a> ]&nbsp;
+				<!-- ENDIF -->
 			</p>
 			<!-- EVENT topiclist_row_append -->
 		</td>
+		<td class="row1" width="130" align="center">
+			<p class="topicauthor">
+				{% EVENT mcp_forum_topic_author_username_prepend %}
+				{topicrow.TOPIC_AUTHOR_FULL}
+				{% EVENT mcp_forum_topic_author_username_append %}
+			</p>
+		</td>
 		<td class="row1" width="50" align="center"><p class="topicdetails">{topicrow.REPLIES}</p></td>
-		<td class="row1" width="120" align="center"><p class="topicdetails">{topicrow.LAST_POST_TIME}</p></td>
+		<td class="row1" width="120" align="center">
+			<p class="topicdetails" style="white-space: nowrap;">{topicrow.LAST_POST_TIME}</p>
+			<p class="topicdetails">
+				{% EVENT mcp_forum_last_post_author_username_prepend %}
+				{topicrow.LAST_POST_AUTHOR_FULL}
+				{% EVENT mcp_forum_last_post_author_username_append %}
+				<!-- IF not S_IS_BOT --><a href="{topicrow.U_LAST_POST}" class="imageset">{LAST_POST_IMG}</a><!-- ENDIF -->
+			</p>
+		</td>
 		<td class="row2" align="center">
 			<!-- IF not topicrow.S_MOVED_TOPIC and not S_MERGE_SELECT --><input type="checkbox" class="radio" name="topic_id_list[]" value="{topicrow.TOPIC_ID}"<!-- IF topicrow.S_TOPIC_CHECKED --> checked="checked"<!-- ENDIF --> /><!-- ELSE -->&nbsp;<!-- ENDIF -->
 		</td>
