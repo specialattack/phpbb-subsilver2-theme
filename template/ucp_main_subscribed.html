@@ -17,7 +17,13 @@
 		<!-- IF forumrow.S_ROW_COUNT is even --><tr class="row1"><!-- ELSE --><tr class="row2"><!-- ENDIF -->
 			<td style="padding: 4px;" width="20" align="center" valign="middle">{forumrow.FORUM_FOLDER_IMG}</td>
 			<td style="padding: 4px;" width="100%"><p class="topictitle"><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></p></td>
-			<td class="gensmall" style="padding: 4px;" align="center" valign="middle" nowrap="nowrap"><!-- IF forumrow.LAST_POST_TIME -->{forumrow.LAST_POST_TIME}<br />{forumrow.LAST_POST_AUTHOR_FULL} <a href="{forumrow.U_LAST_POST}" class="imageset">{LAST_POST_IMG}</a><!-- ELSE -->{L_NO_POSTS}<!-- ENDIF --></td>
+			<td class="gensmall" style="padding: 4px;" align="center" valign="middle" nowrap="nowrap">
+				<!-- IF forumrow.LAST_POST_TIME_RFC3339 -->
+					<time datetime="{forumrow.LAST_POST_TIME_RFC3339}">{forumrow.LAST_POST_TIME}</time><br />{forumrow.LAST_POST_AUTHOR_FULL} <a href="{forumrow.U_LAST_POST}" class="imageset">{LAST_POST_IMG}</a>
+				<!-- ELSE -->
+					{L_NO_POSTS}
+				<!-- ENDIF -->
+			</td>
 			<td style="padding: 4px;"> <input type="checkbox" class="radio" name="f[{forumrow.FORUM_ID}]" /> </td>
 		</tr>
 	<!-- BEGINELSE -->
