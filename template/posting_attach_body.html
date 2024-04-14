@@ -26,7 +26,13 @@
 	</th>
 </tr>
 <tr>
-	<td class="row3" colspan="2"><span class="gensmall">{L_ADD_ATTACHMENT_EXPLAIN}</span></td>
+	<td class="row3" colspan="2">
+		<span class="gensmall">{L_ADD_ATTACHMENT_EXPLAIN}</span>
+		{% if MAX_ATTACHMENT_FILESIZE is not empty %}
+			<br><br>
+			<span class="gensmall">{{ MAX_ATTACHMENT_FILESIZE }}</span>
+		{% endif %}
+	</td>
 </tr>
 
 <tr> 

@@ -100,7 +100,21 @@
 
 <!-- BEGIN url --><a href="{URL}" class="postlink">{DESCRIPTION}</a><!-- END url -->
 
-<!-- BEGIN email --><a href="mailto:{EMAIL}">{DESCRIPTION}</a><!-- END email -->
+{# https://s9etextformatter.readthedocs.io/Plugins/BBCodes/Custom_BBCode_syntax/ #}
+<!-- BEGIN email -->
+<a>
+	<xsl:attribute name="href">
+		<xsl:text>mailto:</xsl:text>
+		<xsl:value-of select="@email"/>
+		<xsl:if test="@subject or @body">
+			<xsl:text>?</xsl:text>
+			<xsl:if test="@subject">subject=<xsl:value-of select="@subject"/></xsl:if>
+			<xsl:if test="@body"><xsl:if test="@subject">&amp;</xsl:if>body=<xsl:value-of select="@body"/></xsl:if>
+		</xsl:if>
+	</xsl:attribute>
+	<xsl:apply-templates/>
+</a>
+<!-- END email -->
 
 <!-- BEGIN flash -->
 	<object classid="clsid:D27CDB6E-AE6D-11CF-96B8-444553540000" codebase="http://active.macromedia.com/flash2/cabs/swflash.cab#version=5,0,0,0" width="{WIDTH}" height="{HEIGHT}">

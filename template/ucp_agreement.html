@@ -32,7 +32,7 @@
 
 	<table class="tablebg" width="100%" cellspacing="1">
 	<tr>
-		<th height="25">{SITENAME} - {L_REGISTRATION}</th>
+		<th height="25">{{ SITENAME }} - {{ lang('REGISTRATION') }}</th>
 	</tr>
 	<tr>
 		<td class="row1" align="center">
@@ -41,25 +41,25 @@
 				<!-- IF S_SHOW_COPPA -->
 					<td class="gen" align="center">
 						<br />
-						{L_COPPA_BIRTHDAY}
+						{{ lang('COPPA_BIRTHDAY') }}
 						<br /><br />
 						<button type="submit" name="coppa_no" id="coppa_no" class="hyperlink">
-							{L_COPPA_NO}
+							{{ lang('COPPA_NO') }}
 						</button>
 						::
 						<button type="submit" name="coppa_yes" id="coppa_yes" class="hyperlink">
-							{L_COPPA_YES}
+							{{ lang('COPPA_YES') }}
 						</button>
 						<br /><br />
 					</td>
 				<!-- ELSE -->
 					<td>
 						<!-- EVENT ucp_agreement_terms_before -->
-						<span class="genmed"><br />{L_TERMS_OF_USE}<br /><br /></span>
+						<span class="genmed"><br />{{ lang('TERMS_OF_USE') }}<br /><br /></span>
 						<!-- EVENT ucp_agreement_terms_after -->
 						<div align="center">
-							<input class="btnlite" type="submit" id="agreed" name="agreed" value="{L_AGREE}" /><br /><br />
-							<input class="btnlite" type="submit" name="not_agreed" value="{L_NOT_AGREE}" />
+							<input class="btnlite" type="submit" id="agreed" name="agreed" value="{{ lang('AGREE') }}" /><br /><br />
+							<input class="btnlite" type="submit" name="not_agreed" value="{{ lang('NOT_AGREE') }}" />
 						</div>
 					</td>
 				<!-- ENDIF -->
@@ -76,16 +76,16 @@
 
 	<table class="tablebg" width="100%" cellspacing="1">
 	<tr>
-		<th height="25">{SITENAME} - {AGREEMENT_TITLE}</th>
+		<th height="25">{{ SITENAME }} - {{ AGREEMENT_TITLE }}</th>
 	</tr>
 	<tr>
 		<td class="row1" align="center">
 			<table width="90%" cellspacing="2" cellpadding="2" border="0" align="center">
 			<tr>
 				<td>
-					<span class="genmed"><br />{AGREEMENT_TEXT}<br /><br /></span>
+					<span class="genmed"><br />{{ AGREEMENT_TEXT }}<br /><br /></span>
 					<div align="center">
-						<a href="{U_BACK}">{L_BACK}</a>
+						<a href="{U_BACK}">{{ lang('BACK') }}</a>
 					</div>
 				</td>
 			</tr>
