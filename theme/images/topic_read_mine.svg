@@ -1,0 +1,20 @@
+<svg width="19" height="18" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <defs>
+  <linearGradient id="svg_2" x1="0.44409" x2="0.66284" y1="0.175" y2="0.89766">
+   <stop offset="0" stop-color="#f7f7f7" stop-opacity="0.98828"/>
+   <stop offset="0.99878" stop-color="#c4c4c4" stop-opacity="0.98828"/>
+  </linearGradient>
+  <linearGradient id="svg_5" spreadMethod="pad" x1="0.5" x2="0.5" y1="0.12031" y2="0.86">
+   <stop offset="0" stop-color="#f9f9f9" stop-opacity="0.96875"/>
+   <stop offset="1" stop-color="#e0e0e0" stop-opacity="0.96875"/>
+  </linearGradient>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <circle cx="9.5" cy="9" fill="url(#svg_2)" id="svg_1" r="8.5" stroke="#005d8c"/>
+  <g id="svg_9"/>
+  <path d="m12.55556,13.35759l-7.55556,-1.68651l3.50794,-7.67108l3.77778,0.53968l1.07937,1.39727l0.13492,2.36111l-0.94444,5.05952l-0.00001,0.00001z" fill="url(#svg_5)" id="svg_16" stroke="#1e1e1e"/>
+  <circle cx="3.5" cy="3.5" fill="#000000" id="svg_4" r="3" stroke="#000000" stroke-width="0"/>
+ </g>
+</svg>

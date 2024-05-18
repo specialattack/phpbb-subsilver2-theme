@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<svg width="46" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <defs>
+  <linearGradient id="svg_2" x1="0.44409" x2="0.66284" y1="0.175" y2="0.89766">
+   <stop offset="0" stop-color="#f7f7f7" stop-opacity="0.98828"/>
+   <stop offset="0.99878" stop-color="#c4c4c4" stop-opacity="0.98828"/>
+  </linearGradient>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <circle cx="23" cy="12.4" fill="url(#svg_2)" id="svg_1" r="12" stroke="#005d8c"/>
+  <g id="svg_9"/>
+  <path d="m18.5,18.5l0,-9a5,-4 0 0 1 10,0l0,9l-10,0zm3,-7.5l0,-2.5a2,-1 0 0 1 4,0l0,2.5l-4,0z" fill="#aa7a47" fill-rule="evenodd" id="svg_3" stroke="#000000" stroke-width="0"/>
+  <path d="m18,17.998047l0,-9a5,-4 0 0 1 10,0l0,9l-10,0zm3,-7.5l0,-2.5a2,-1 0 0 1 4,0l0,2.5l-4,0z" fill="#f3a551" fill-rule="evenodd" id="svg_11" stroke="#000000" stroke-width="0"/>
+ </g>
+</svg>

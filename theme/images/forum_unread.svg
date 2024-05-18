@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<svg width="46" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <defs>
+  <filter height="400%" id="svg_6_blur" width="400%" x="-200%" y="-200%">
+   <feGaussianBlur stdDeviation="1.5"/>
+  </filter>
+  <linearGradient id="svg_2" x1="0.444092" x2="0.662842" y1="0.175" y2="0.897656">
+   <stop offset="0" stop-color="#f7f7f7" stop-opacity="0.98828"/>
+   <stop offset="0.99878" stop-color="#c4c4c4" stop-opacity="0.98828"/>
+  </linearGradient>
+  <linearGradient id="svg_4" spreadMethod="pad" x1="0.5" x2="0.5" y1="0.120312" y2="0.86">
+   <stop offset="0.018311" stop-color="#fcd2a8" stop-opacity="0.972656"/>
+   <stop offset="0.99878" stop-color="#f7b06b" stop-opacity="0.972656"/>
+  </linearGradient>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <circle cx="23" cy="12.4" fill="url(#svg_2)" id="svg_1" r="12" stroke="#005d8c"/>
+  <g id="svg_9"/>
+  <ellipse cx="22.42414" cy="14.873521" fill="#000000" filter="url(#svg_6_blur)" id="svg_6" opacity="0.1" rx="6.033658" ry="6.97429" stroke="#000000" stroke-width="0" transform="rotate(21.1393 22.4241 14.8735)"/>
+  <path d="m27.2,18.87125l-11.2,-2.5l5.2,-11.37125l5.6,0.8l1.6,2.07125l0.2,3.5l-1.4,7.5z" fill="url(#svg_4)" id="svg_16" stroke="#1e1e1e"/>
+ </g>
+</svg>
